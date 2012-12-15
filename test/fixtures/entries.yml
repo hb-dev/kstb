@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pit: 2012-12-14 23:17:14
+  duration: 9.99
+  type: 
+  location: MyString
+  intensity: MyString
+  trigger: MyString
+  nausea: false
+  medication: MyString
+  medication_amount: 
+  medication_effect: MyString
+  comments: MyText
+
+two:
+  pit: 2012-12-14 23:17:14
+  duration: 9.99
+  type: 
+  location: MyString
+  intensity: MyString
+  trigger: MyString
+  nausea: false
+  medication: MyString
+  medication_amount: 
+  medication_effect: MyString
+  comments: MyText

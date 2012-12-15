@@ -1,0 +1,56 @@
+<div data-role="content">
+  <%= form_for(@entry) do |f| %>
+    <% if @entry.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this note from being saved:</h2>
+        <ul>
+        <% @entry.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.text_field :pit, :type => "datetime-local", :placeholder => "Zeitpunkt" %>
+    </div>
+    <div data-role="field">
+		<%= f.label :duration, "Dauer"%>
+    	<%= f.text_field :duration, :type => "range", :value => "0", :min => "0",  :max =>"60", :step => "0.5"%>
+	</div>
+	<div class="field">
+		<%= f.select :type, ["Spannungskopfschmerz", "Migräne", "Cluster Kopfschmerzen", "Hormonelle Kopfschmerzen", "Rebound Kopfschmerzen", "Sinus Kopfschmerzen", "Organische Kopfschmerzen", "Sekundäre Kopfschmerzen"], :include_blank => "Kopfschmerzart auswählen.."%>		
+	</div>
+	<div class="field">
+		<%= f.select :location, ["Linke Seite", "Rechte Seite", "Ganzer Kopf", "Vorderkopf", "Hinterkopf", "Hinter linkem Auge", "Hinter rechtem Auge", "Hinter linkem Ohr", "Hinter rechtem Ohr"], :include_blank => "Schmerzort auswählen.."%>
+	</div>
+	<div class="field">
+		<%= f.select :intensity, ["0 Schmerzfrei", "1 Sehr leichter Schmerz", "2 Leichter Schmerz", "3 Leichter bis mäßiger Schmerz", "4 Mäßiger Schmerz", "5 Mäßiger bis starker Schmerz", "6 Etwas stärkerer Schmerz", "7 Störender Schmerz", "8 Starker Schmerz", "9 Sehr starker Schmerz", "10 Extrem starker Schmerz"], :include_blank => "Schmerzstärker auswählen.."%>
+	</div>
+	<div class="field">
+		<%= f.select :trigger, ["Alkohol", "Allergien", "Überanstrengung", "Essen", "Medikamente", "Menstruation", "Krankheit", "Schlaf / Schlafstörung", "Rauchen", "Stress", "Wetter"], :include_blank => "Auslöser auswählen.."%>
+	</div>
+	<div class="field">
+		<%= f.label :nausea, "Verursacht Übelkeit"%>
+		<%= f.check_box :nausea%>
+	</div>
+	<div class="field">
+		<%= f.label :medication, "Eingenommene Medikamente"%>
+		<%= f.select :medication, ["Azetylsalicylsäure", "Paracetamol", "Ibuprofen", "Aspirin", "Formigran"]%>
+	</div>
+	<div class="field">
+		<%= f.label :medication_amount, "Anzahl eingenommener Medikamente"%>
+		<%= f.select :medication_amount, 0..5%>
+	</div>
+	<div class="field">
+		<%= f.select :medication_effect, ["0 Keine Wirkung", "1 Kaum Wirkung", "2 Etwas Wirkung", "3 Mittelmäßige Wirkung", "4 Gute Wirkung", "5 Sehr gute Wirkung"], :include_blank => "Wirkungsgrad auswählen"%>
+	</div>
+	<div class="field">
+		<%= f.text_area :comments, :placeholder => "Kommentare"%>
+	</div>
+    <div class="actions">
+      <%= f.submit "Eintrag erstellen" %>
+    </div>
+  <% end %>
+</div>
+
+
