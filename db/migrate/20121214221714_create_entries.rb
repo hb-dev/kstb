@@ -2,7 +2,6 @@ class CreateEntries < ActiveRecord::Migration
   def change
     create_table :entries do |t|
       t.datetime :pit
-      t.decimal :duration, :precision => 2, :scale => 1
       t.string :type
       t.string :location
       t.string :intensity

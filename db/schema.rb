@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214221714) do
+ActiveRecord::Schema.define(:version => 20121216213634) do
 
   create_table "entries", :force => true do |t|
-    t.datetime "pit"
+    t.datetime "start_pit"
     t.decimal  "duration",          :precision => 2, :scale => 1
     t.string   "type"
     t.string   "location"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20121214221714) do
     t.text     "comments"
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
+    t.datetime "end_pit"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
