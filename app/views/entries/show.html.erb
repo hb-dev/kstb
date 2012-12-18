@@ -1,60 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div data-role="header">
+  <h1>Eintrag #<%= @entry.id %></h1>
+</div>
+<div data-role="content">
+  <p id="notice"><%= notice %></p>
+  <p>
+  	<h3>Zeitpunkt</h3>
+    <%= @entry.start_pit %>
+  </p>
+  <p>
+  	<h3>Dauer</h3>
+    <%= distance_of_time_in_words(@entry.duration) %>
+  </p>
+  <p>
+  	<h3>Schmerzart</h3>
+    <%= @entry.entry_type %>
+  </p>
+  <p>
+  	<h3>Schmerzort</h3>
+    <ul>
+      <% @entry.locations.each do |location| %>
+		<li><%= location.title %></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>
+  	<h3>Auslöser</h3>
+    <ul>
+      <% @entry.triggers.each do |trigger| %>
+		<li><%= trigger.title %></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>
+  	<h3>Kommentare</h3>
+    <%= @entry.comments %>
+  </p>
+  <dl>
+  	<dt>def term</dt>
+  	<dd>def text1</dd>
+  	<dd>def text2</dd>
+  	<dd>def text3</dd>
+  </dl>
+</div>
+<div data-role="footer" >
+  <%= link_to 'Edit', edit_entry_path(@entry) %>
+  <%= link_to 'Destroy', @entry, confirm: 'Are you sure?', method: :delete %>
+  <%= link_to 'Back', entries_path %>
+</div>
 
-<p>
-  <b>Pit:</b>
-  <%= @entry.pit %>
-</p>
-
-<p>
-  <b>Duration:</b>
-  <%= @entry.duration %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @entry.type %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @entry.location %>
-</p>
-
-<p>
-  <b>Intensity:</b>
-  <%= @entry.intensity %>
-</p>
-
-<p>
-  <b>Trigger:</b>
-  <%= @entry.trigger %>
-</p>
-
-<p>
-  <b>Nausea:</b>
-  <%= @entry.nausea %>
-</p>
-
-<p>
-  <b>Medication:</b>
-  <%= @entry.medication %>
-</p>
-
-<p>
-  <b>Medication amount:</b>
-  <%= @entry.medication_amount %>
-</p>
-
-<p>
-  <b>Medication effect:</b>
-  <%= @entry.medication_effect %>
-</p>
-
-<p>
-  <b>Comments:</b>
-  <%= @entry.comments %>
-</p>
-
-
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>

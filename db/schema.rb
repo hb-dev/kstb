@@ -11,26 +11,55 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216213634) do
+ActiveRecord::Schema.define(:version => 20121218144812) do
 
   create_table "entries", :force => true do |t|
     t.datetime "start_pit"
-    t.decimal  "duration",          :precision => 2, :scale => 1
-    t.string   "type"
-    t.string   "location"
+    t.decimal  "duration",   :precision => 2, :scale => 1
+    t.string   "entry_type"
     t.string   "intensity"
-    t.string   "trigger"
     t.integer  "nausea"
-    t.string   "medication"
-    t.integer  "medication_amount"
-    t.string   "medication_effect"
     t.text     "comments"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.datetime "end_pit"
   end
 
+  create_table "intakes", :force => true do |t|
+    t.integer  "medication_id"
+    t.decimal  "amount",        :precision => 3, :scale => 1
+    t.string   "effect"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  create_table "localizations", :force => true do |t|
+    t.integer  "entry_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "locations", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "medications", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "triggerings", :force => true do |t|
+    t.integer  "entry_id"
+    t.integer  "trigger_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "triggers", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

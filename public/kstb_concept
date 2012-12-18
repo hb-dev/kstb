@@ -1,0 +1,30 @@
+medications:
+attr: id, title
+preset values: ["Azetylsalicylsäure", "Paracetamol", "Ibuprofen", "Aspirin", "Formigran"]
+---------------------------------------------------------------------------------------
+intakes:
+attr: medication_id, amount, effect
+
+implementation with nested_fields
+
+effects: ["0 Keine Wirkung", "1 Kaum Wirkung", "2 Etwas Wirkung", "3 Mittelmäßige Wirkung", "4 Gute Wirkung", "5 Sehr gute Wirkung"]
+
+amount: 0..5
+----------------------------------------
+triggers:
+attr: id, title
+preset values: ["Alkohol", "Allergien", "Überanstrengung", "Essen", "Medikamente", "Menstruation", "Krankheit", "Schlaf / Schlafstörung", "Rauchen", "Stress", "Wetter"]
+
+
+
+VIEWS:
+
+Entry Index:
+- One page per month
+- Swipe to change to prev. or next month
+
+Entry Form:
+- hide labels based on screen size (lists with forms)
+
+Dashboard
+- Add Entry | List Entries | Admin | Help | Statistics

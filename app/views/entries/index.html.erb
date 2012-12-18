@@ -1,43 +1,20 @@
-<h1>Listing entries</h1>
-
-<table>
-  <tr>
-    <th>Pit</th>
-    <th>Duration</th>
-    <th>Type</th>
-    <th>Location</th>
-    <th>Intensity</th>
-    <th>Trigger</th>
-    <th>Nausea</th>
-    <th>Medication</th>
-    <th>Medication amount</th>
-    <th>Medication effect</th>
-    <th>Comments</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @entries.each do |entry| %>
-  <tr>
-    <td><%= entry.pit %></td>
-    <td><%= entry.duration %></td>
-    <td><%= entry.type %></td>
-    <td><%= entry.location %></td>
-    <td><%= entry.intensity %></td>
-    <td><%= entry.trigger %></td>
-    <td><%= entry.nausea %></td>
-    <td><%= entry.medication %></td>
-    <td><%= entry.medication_amount %></td>
-    <td><%= entry.medication_effect %></td>
-    <td><%= entry.comments %></td>
-    <td><%= link_to 'Show', entry %></td>
-    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-    <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Entry', new_entry_path %>
+<div data-role="header">
+  <%= link_to "<", root_path, "data-icon" => "home"%>
+  <h1>Einträge</h1>
+</div>
+<div data-role="content">
+  <ul data-role="listview">
+  <% @entries.each do |entry| %>
+    <li>
+    <%= link_to entry do %>
+      <h2><%= entry.start_pit %></h2>
+      <%= entry.duration %>
+      <%= entry.intensity %>
+    <% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+<div data-role="footer">
+  <%= link_to 'Eintrag hinzufügen', new_entry_path %>
+</div>

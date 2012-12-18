@@ -16,7 +16,6 @@ class EntriesController < ApplicationController
   # GET /entries/new.json
   def new
     @entry = Entry.new
-
   end
 
   # GET /entries/1/edit

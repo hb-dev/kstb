@@ -10,46 +10,36 @@
         </ul>
       </div>
     <% end %>
-    <div class="field">
+    <div data-role="fieldcontain">
       <%= f.label :start_pit, "Startzeitpunkt"%>
       <%= f.text_field :start_pit, :type => "datetime-local"%>
     </div>
-    <div class="field">
+    <div data-role="fieldcontain">
       <%= f.label :end_pit, "Endzeitpunkt"%>
       <%= f.text_field :end_pit, :type => "datetime-local" %>
     </div>
-	<div class="field">
-		<%= f.select :type, ["Spannungskopfschmerz", "Migräne", "Cluster Kopfschmerzen", "Hormonelle Kopfschmerzen", "Rebound Kopfschmerzen", "Sinus Kopfschmerzen", "Organische Kopfschmerzen", "Sekundäre Kopfschmerzen"], :include_blank => "Kopfschmerzart auswählen.."%>		
+	<div data-role="fieldcontain">
+		 <%= f.select :entry_type, ["Spannungskopfschmerz", "Migräne", "Cluster Kopfschmerzen", "Hormonelle Kopfschmerzen", "Rebound Kopfschmerzen", "Sinus Kopfschmerzen", "Organische Kopfschmerzen", "Sekundäre Kopfschmerzen"], {:include_blank => "Kopfschmerzart auswählen.."}, {"data-native-menu" => false}%>		
 	</div>
-	<div class="field">
-		<%= f.select :location, ["Linke Seite", "Rechte Seite", "Ganzer Kopf", "Vorderkopf", "Hinterkopf", "Hinter linkem Auge", "Hinter rechtem Auge", "Hinter linkem Ohr", "Hinter rechtem Ohr"], {:include_blank => "Bitte Schmerzort(e) wählen"}, { :multiple => true, :size => 5,  "data-native-menu" => false }%>
+	<div data-role="fieldcontain">
+		<%= f.collection_select :location_ids, Location.all, :id, :title, {:selected => @entry.location_ids, :include_blank => "Schmerzort(e) auswählen.."}, { :multiple => true, "data-native-menu" => false }%>
 	</div>
-	<div class="field">
-		<%= f.select :intensity, ["0 Schmerzfrei", "1 Sehr leichter Schmerz", "2 Leichter Schmerz", "3 Leichter bis mäßiger Schmerz", "4 Mäßiger Schmerz", "5 Mäßiger bis starker Schmerz", "6 Etwas stärkerer Schmerz", "7 Störender Schmerz", "8 Starker Schmerz", "9 Sehr starker Schmerz", "10 Extrem starker Schmerz"], :include_blank => "Schmerzstärke auswählen.."%>
+	<div data-role="fieldcontain">
+		<%= f.select :intensity, ["0 Schmerzfrei", "1 Sehr leichter Schmerz", "2 Leichter Schmerz", "3 Leichter bis mäßiger Schmerz", "4 Mäßiger Schmerz", "5 Mäßiger bis starker Schmerz", "6 Etwas stärkerer Schmerz", "7 Störender Schmerz", "8 Starker Schmerz", "9 Sehr starker Schmerz", "10 Extrem starker Schmerz"], {:include_blank => "Schmerzstärke auswählen.."},  {"data-native-menu" => false} %>
 	</div>
-	<div class="field">
-		<%= f.select :trigger, ["Alkohol", "Allergien", "Überanstrengung", "Essen", "Medikamente", "Menstruation", "Krankheit", "Schlaf / Schlafstörung", "Rauchen", "Stress", "Wetter"], :include_blank => "Auslöser auswählen.."%>
+	<div data-role="fieldcontain">
+		<%= f.collection_select :trigger_ids, Trigger.all, :id, :title, {:selected => @entry.trigger_ids, :include_blank => "Auslöser auswählen.."}, { :multiple => true,  "data-native-menu" => false }%>
 	</div>
-	<div class="field">
+	<div data-role="fieldcontain">
 		<%= f.label :nausea, "Verursacht Übelkeit"%>
-		<%= f.check_box :nausea%>
+		<%= f.check_box :nausea %>
 	</div>
-	<div class="field">
-		<%= f.label :medication, "Eingenommene Medikamente"%>
-		<%= f.select :medication, ["Azetylsalicylsäure", "Paracetamol", "Ibuprofen", "Aspirin", "Formigran"]%>
-	</div>
-	<div class="field">
-		<%= f.label :medication_amount, "Anzahl eingenommener Medikamente"%>
-		<%= f.select :medication_amount, 0..5%>
-	</div>
-	<div class="field">
-		<%= f.select :medication_effect, ["0 Keine Wirkung", "1 Kaum Wirkung", "2 Etwas Wirkung", "3 Mittelmäßige Wirkung", "4 Gute Wirkung", "5 Sehr gute Wirkung"], :include_blank => "Wirkungsgrad auswählen"%>
-	</div>
-	<div class="field">
+	<!-- medication fields -->
+	<div data-role="fieldcontain">
 		<%= f.text_area :comments, :placeholder => "Kommentare"%>
 	</div>
     <div class="actions">
-      <%= f.submit "Eintrag erstellen" %>
+      <%= f.submit %>
     </div>
   <% end %>
 </div>

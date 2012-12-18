@@ -1,3 +1,10 @@
 class Location < ActiveRecord::Base
-  # attr_accessible :title, :body
+  
+  has_many :localizations
+  has_many :entries, through: :localizations
+  
+  attr_accessible :title
+  
+  validates :title, :presence => true
+  
 end
