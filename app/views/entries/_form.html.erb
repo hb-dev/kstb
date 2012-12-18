@@ -19,15 +19,19 @@
       <%= f.text_field :end_pit, :type => "datetime-local" %>
     </div>
 	<div data-role="fieldcontain">
+      <%= f.label :entry_type, "Schmerzart"%>
 		 <%= f.select :entry_type, ["Spannungskopfschmerz", "Migräne", "Cluster Kopfschmerzen", "Hormonelle Kopfschmerzen", "Rebound Kopfschmerzen", "Sinus Kopfschmerzen", "Organische Kopfschmerzen", "Sekundäre Kopfschmerzen"], {:include_blank => "Kopfschmerzart auswählen.."}, {"data-native-menu" => false}%>		
 	</div>
 	<div data-role="fieldcontain">
+      <%= f.label :location_ids, "Schmerzort(e)"%>
 		<%= f.collection_select :location_ids, Location.all, :id, :title, {:selected => @entry.location_ids, :include_blank => "Schmerzort(e) auswählen.."}, { :multiple => true, "data-native-menu" => false }%>
 	</div>
 	<div data-role="fieldcontain">
+      <%= f.label :intensity, "Schmerzstärke"%>
 		<%= f.select :intensity, ["0 Schmerzfrei", "1 Sehr leichter Schmerz", "2 Leichter Schmerz", "3 Leichter bis mäßiger Schmerz", "4 Mäßiger Schmerz", "5 Mäßiger bis starker Schmerz", "6 Etwas stärkerer Schmerz", "7 Störender Schmerz", "8 Starker Schmerz", "9 Sehr starker Schmerz", "10 Extrem starker Schmerz"], {:include_blank => "Schmerzstärke auswählen.."},  {"data-native-menu" => false} %>
 	</div>
 	<div data-role="fieldcontain">
+      <%= f.label :trigger_ids, "Auslöser"%>
 		<%= f.collection_select :trigger_ids, Trigger.all, :id, :title, {:selected => @entry.trigger_ids, :include_blank => "Auslöser auswählen.."}, { :multiple => true,  "data-native-menu" => false }%>
 	</div>
 	<div data-role="fieldcontain">
@@ -36,6 +40,7 @@
 	</div>
 	<!-- medication fields -->
 	<div data-role="fieldcontain">
+		<%= f.label :comments, "Kommentare Übelkeit"%>
 		<%= f.text_area :comments, :placeholder => "Kommentare"%>
 	</div>
     <div class="actions">
