@@ -1,7 +1,9 @@
-<div data-role="header">
-  <h1>Neuer Eintrag</h1>
-</div>
+<div data-role="header" data-position="fixed">		
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#">Speichern</a></li>
+			<li><a href="#">Abbrechen</a></li>
+		</ul>
+	</div><!-- /navbar -->
+</div><!-- /footer -->
 <%= render 'form' %>
-<div data-role="footer">
-  <%= link_to 'Zurück', entries_path %>
-</div>
