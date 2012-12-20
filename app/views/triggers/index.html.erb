@@ -1,7 +1,6 @@
 <div data-role="header" data-position="fixed">
   <%= link_to '<'.html_safe , settings_path, :class => "ui-btn-left" %>
   <h1>Auslöser</h1>
-  <%= link_to '+'.html_safe , new_trigger_path, :class => "ui-btn-right" %>
 </div>
 <div data-role="content">
   <ul data-role="listview">
@@ -13,4 +12,9 @@
     </li>
   <% end %>
   </ul>
+</div>
+<div data-role="navbar" data-position="fixed">
+	<ul>
+		<li><%= link_to "Neuer Eintrag", new_trigger_path, "data-icon" => "plus", "data-iconpos" => "left" %></li>
+	</ul>
 </div>
