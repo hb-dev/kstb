@@ -1,7 +1,12 @@
 Kstb::Application.routes.draw do
+
+  get "help" => 'help#index'
+
   get "dashboard/index"
 
   resources :triggers
+
+  resources :settings
 
   resources :medications
 

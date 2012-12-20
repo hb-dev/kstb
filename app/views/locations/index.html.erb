@@ -1,4 +1,5 @@
-<div data-role="header">
+<div data-role="header" data-position="fixed">
+    <%= link_to '<'.html_safe , settings_path, :class => "ui-btn-left" %>	
   <h1>Schmerzorte</h1>
   <%= link_to '+'.html_safe , new_location_path, :class => "ui-btn-right" %>
 </div>
@@ -7,12 +8,9 @@
   <% @locations.each do |location| %>
     <li>
     <%= link_to edit_location_path(location) do %>
-      <h2><%= location.title %></h2>
+      <h3><%= location.title %></h3>
     <% end %>
     </li>
   <% end %>
   </ul>
-</div>
-<div data-role="footer" class="ui-bar">
-  
 </div>

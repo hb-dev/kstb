@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require jquery.mobile
 //= require_tree .
+
+$(function () {
+	// $("a[data-submitform]").on("click", function(){
+		// submit_form_id = $(this).attr("data-submitform");
+		// submit_form = document.getElementById(submit_form_id);
+		// $(submit_form).submit();
+	// })
+});

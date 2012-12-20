@@ -2,7 +2,7 @@ class TriggersController < ApplicationController
   # GET /triggers
   # GET /triggers.json
   def index
-    @triggers = Trigger.all
+    @triggers = Trigger.order('title')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,8 +44,8 @@ class TriggersController < ApplicationController
 
     respond_to do |format|
       if @trigger.save
-        format.html { redirect_to @trigger, notice: 'Trigger was successfully created.' }
-        format.json { render json: @trigger, status: :created, location: @trigger }
+        format.html { redirect_to triggers_path, notice: 'Trigger was successfully created.' }
+        format.json { render json: @trigger, status: :created, location: triggers_path }
       else
         format.html { render action: "new" }
         format.json { render json: @trigger.errors, status: :unprocessable_entity }

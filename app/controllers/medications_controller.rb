@@ -2,7 +2,7 @@ class MedicationsController < ApplicationController
   # GET /medications
   # GET /medications.json
   def index
-    @medications = Medication.all
+    @medications = Medication.order('title')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,8 +44,8 @@ class MedicationsController < ApplicationController
 
     respond_to do |format|
       if @medication.save
-        format.html { redirect_to @medication, notice: 'Medication was successfully created.' }
-        format.json { render json: @medication, status: :created, location: @medication }
+        format.html { redirect_to medications_path, notice: 'Medication was successfully created.' }
+        format.json { render json: @medication, status: :created, location: triggers_path }
       else
         format.html { render action: "new" }
         format.json { render json: @medication.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class MedicationsController < ApplicationController
 
     respond_to do |format|
       if @medication.update_attributes(params[:medication])
-        format.html { redirect_to @medication, notice: 'Medication was successfully updated.' }
+        format.html { redirect_to medications_path, notice: 'Medication was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

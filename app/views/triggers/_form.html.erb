@@ -1,21 +1,30 @@
 <%= form_for(@trigger) do |f| %>
-  <% if @trigger.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
-
-      <ul>
-      <% @trigger.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div data-role="content">
+	    <% if @trigger.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= pluralize(@trigger.errors.count, "error") %> prohibited this trigger from being saved:</h2>
+	        <ul>
+	        <% @trigger.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+	    <div data-role="fieldcontain" class="ui-hide-label">
+	      <%= f.label :title, "Name"%>
+	      <%= f.text_field :title, :placeholder => "Namen eintragen..", :required => true%>
+	    </div>
+	    <br />
+	    <% unless @trigger.new_record?%>
+	    <div data-role="fieldcontain" class="ui-hide-label">
+	    	<%= link_to 'Eintrag löschen', @trigger, method: :delete, data: { confirm: 'Wirklich löschen?'}, "data-role" => 'button', "data-icon" => 'delete', "data-theme" => "a" %>
+	    </div>
+	    <% end %>
+	</div>    
+	<div data-role="navbar" data-position="fixed">
+		<ul>
+			<li><%= f.submit "Speichern", :class => "ui-btn-active ui-state-persist" %></li>
+			<li><%= link_to "Abbrechen", "#", "data-rel" => "back"%></li>
+		</ul>
+	</div><!-- /navbar -->	
 <% end %>

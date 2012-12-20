@@ -1,23 +1,30 @@
-<div data-role="content">
-  <%= form_for(@location) do |f| %>
-    <% if @location.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
-        <ul>
-        <% @location.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <div data-role="fieldcontain" class="ui-hide-label">
-      <%= f.label :title, "Name"%>
-      <%= f.text_field :title, :placeholder => "Namen eintragen.."%>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
-
-
+<%= form_for(@location) do |f| %>
+	<div data-role="content">
+	    <% if @location.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+	        <ul>
+	        <% @location.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+	    <div data-role="fieldcontain" class="ui-hide-label">
+	      <%= f.label :title, "Name"%>
+	      <%= f.text_field :title, :placeholder => "Namen eintragen..", :required => true%>
+	    </div>
+	    <br />
+	    <% unless @location.new_record?%>
+	    <div data-role="fieldcontain" class="ui-hide-label">
+	    	<%= link_to 'Eintrag löschen', @location, method: :delete, data: { confirm: 'Wirklich löschen?'}, "data-role" => 'button', "data-icon" => 'delete', "data-theme" => "a" %>
+	    </div>
+	    <% end %>
+	</div>    
+	<div data-role="navbar" data-position="fixed">
+		<ul>
+			<li><%= f.submit "Speichern", :class => "ui-btn-active ui-state-persist" %></li>
+			<li><%= link_to "Abbrechen", "#", "data-rel" => "back"%></li>
+		</ul>
+	</div><!-- /navbar -->	
+<% end %>

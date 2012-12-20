@@ -1,0 +1,11 @@
+<div data-role="header">
+  <%= link_to '<'.html_safe , root_path, :class => "ui-btn-left" %>	
+  <h1>Einstellungen</h1>
+</div>
+<div data-role="content">
+	<div data-role="controlgroup">
+		<%= link_to "Auslöser", triggers_path, "data-icon" => "arrow-r", "data-role" => "button" %>		
+		<%= link_to "Schmerzorte", locations_path, "data-icon" => "arrow-r", "data-role" => "button" %>
+		<%= link_to "Medikamente", medications_path, "data-icon" => "arrow-r", "data-role" => "button" %>
+	</div>
+</div>

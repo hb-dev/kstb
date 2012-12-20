@@ -1,12 +1,12 @@
 <div data-role="header">
-  <h1>KSTB Version 1</h1>
+  <h1>KSTB</h1>
 </div>
 <div data-role="content">
 	<div data-role="controlgroup">
 		<%= link_to "Eintrag hinzufügen", new_entry_path, "data-icon" => "plus", "data-role" => "button" %>
 		<%= link_to "Eintragsübersicht", entries_path, "data-icon" => "grid", "data-role" => "button" %>
 		<%= link_to "Auswertungen", new_entry_path, "data-icon" => "star", "data-role" => "button" %>
-		<%= link_to "Hilfe", new_entry_path, "data-icon" => "info", "data-role" => "button" %>
-		<%= link_to "Einstellungen", new_entry_path, "data-icon" => "gear", "data-role" => "button" %>
+		<%= link_to "Hilfe", help_path, "data-icon" => "info", "data-role" => "button" %>
+		<%= link_to "Einstellungen", settings_path, "data-icon" => "gear", "data-role" => "button" %>
 	</div>
 </div>
