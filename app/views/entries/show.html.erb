@@ -42,9 +42,10 @@
   	<dd>def text3</dd>
   </dl>
 </div>
-<div data-role="footer" >
-  <%= link_to 'Edit', edit_entry_path(@entry) %>
-  <%= link_to 'Destroy', @entry, confirm: 'Are you sure?', method: :delete %>
-  <%= link_to 'Back', entries_path %>
-</div>
-
+<div data-role="navbar" data-position="fixed">
+	<ul>
+		<li><%= link_to "Bearbeiten", edit_entry_path %></li>
+		<li><%= link_to 'Löschen', @entry, confirm: 'Wirklich löschen?', method: :delete %></li>
+		<li><%= link_to "Übersicht", entries_path %></li>
+	</ul>
+</div><!-- /navbar -->

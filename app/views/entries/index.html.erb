@@ -1,5 +1,5 @@
 <div data-role="header">
-  <%= link_to "<", root_path, "data-icon" => "home"%>
+  <%= link_to "<", root_path%>
   <h1>Einträge</h1>
 </div>
 <div data-role="content">
@@ -7,14 +7,18 @@
   <% @entries.each do |entry| %>
     <li>
     <%= link_to entry do %>
-      <h2><%= entry.start_pit %></h2>
-      <%= entry.duration %>
-      <%= entry.intensity %>
+      <h3><%= l entry.start_pit, :format => :short %></h3>
+      <p>
+      	<%= distance_of_time_in_words(entry.duration) %>, 
+      	(<%= entry.intensity[0,1] %>)
+      </p>
     <% end %>
     </li>
   <% end %>
   </ul>
 </div>
-<div data-role="footer">
-  <%= link_to 'Eintrag hinzufügen', new_entry_path %>
-</div>
+<div data-role="navbar" data-position="fixed">
+	<ul>
+		<li><%= link_to "Neuer Eintrag", new_entry_path, "data-icon" => "plus", "data-iconpos" => "left" %></li>
+	</ul>
+</div><!-- /navbar -->
