@@ -16,15 +16,15 @@
 	    </div>
 	    <div data-role="fieldcontain">
 	      <%= f.label :end_pit, "Endzeitpunkt"%>
-	      <%= f.text_field :end_pit, :type => "date" , :required => true%>
+	      <%= f.text_field :end_pit, :required => true%>
 	    </div>
 		<div data-role="fieldcontain">
 	      <%= f.label :entry_type, "Schmerzart"%>
-		  <%= f.select :entry_type, ["Spannungskopfschmerz", "Migräne", "Cluster-Kopfschmerzen", "Hormonelle Kopfschmerzen", "Rebound-Kopfschmerzen", "Sinus-Kopfschmerzen", "Organische Kopfschmerzen", "Sekundäre Kopfschmerzen"].sort , {:include_blank => "Kopfschmerzart auswählen.."}, {"data-native-menu" => false}%>		
+		  <%= f.select :entry_type, ["Spannungskopfschmerz", "Migräne", "Cluster-Kopfschmerzen", "Hormonelle Kopfschmerzen", "Rebound-Kopfschmerzen", "Sinus-Kopfschmerzen", "Organische Kopfschmerzen", "Sekundäre Kopfschmerzen"].sort , {:include_blank => "Kopfschmerzart auswählen.."}, {"data-native-menu" => true}%>		
 		</div>
 		<div data-role="fieldcontain">
 	      <%= f.label :location_ids, "Schmerzort(e)"%>
-		  <%= f.collection_select :location_ids, Location.all, :id, :title, {:selected => @entry.location_ids, :include_blank => "Schmerzort(e) auswählen.."}, { :multiple => true, "data-native-menu" => false }%>
+		  <%= f.collection_select :location_ids, Location.all, :id, :title, {:selected => @entry.location_ids, :include_blank => "Schmerzort(e) auswählen.."}, { :multiple => true }%>
 		</div>
 		<div data-role="fieldcontain">
 	      <%= f.label :intensity, "Schmerzstärke"%>
