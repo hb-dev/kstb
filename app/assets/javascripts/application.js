@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require overrides
-//= require jquery.mobile
 //= require_tree .
 
 
