@@ -2,25 +2,25 @@
 	<div class="tiles">
 		<div class="tile left">
 			<%= link_to new_entry_path, "data-role" => "button" do %>
-				<%= image_tag "add.png"%><br />
+				<%= image_tag "#{root_path}assets/add.png"%><br />
 				Eintrag hinzufügen
 			<% end %>
 		</div>
 		<div class="tile">
 			<%= link_to entries_path, "data-role" => "button" do %>
-				<%= image_tag "calendar.png"%><br />
+				<%= image_tag "#{root_path}assets/calendar.png"%><br />
 				Eintragsübersicht
 			<% end %>
 		</div>
 		<div class="tile left">
 			<%= link_to new_entry_path, "data-role" => "button" do %>
-				<%= image_tag "chart.png"%><br />
+				<%= image_tag "#{root_path}assets/chart.png"%><br />
 				Auswertungen
 			<% end %>
 		</div>
 		<div class="tile">
 			<%= link_to help_path, "data-role" => "button" do %>
-				<%= image_tag "help.png"%><br />
+				<%= image_tag "#{root_path}assets/help.png"%><br />
 				Hilfe
 			<% end %>
 		</div>
