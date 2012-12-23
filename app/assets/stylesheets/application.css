@@ -12,4 +12,5 @@
  *= require_tree .
  */
 
-.tile { min-width: 185px; display: inline-block;}
+.tile { width: 50%; display: inline-block; float: left;}
+.tile a {margin: 0;}
