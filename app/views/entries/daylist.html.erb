@@ -1,0 +1,24 @@
+<div data-role="header">
+  <%= link_to "<", entries_path(:date => params[:date])%>
+  <h1>Einträge</h1>
+</div>
+<div data-role="content">
+  <ul data-role="listview">
+  <% @entries.each do |entry| %>
+    <li>
+    <%= link_to entry do %>
+      <h3><%= l entry.start_pit, :format => :short %></h3>
+      <p>
+      	<%= distance_of_time_in_words(entry.duration) %>, 
+      	(<%= entry.intensity[0,1] %>)
+      </p>
+    <% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+<div data-role="navbar" data-position="fixed">
+	<ul>
+		<li><%= link_to "Neuer Eintrag", new_entry_path, "data-icon" => "plus", "data-iconpos" => "left" %></li>
+	</ul>
+</div>

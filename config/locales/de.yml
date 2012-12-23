@@ -33,7 +33,7 @@ de:
     formats:
       default: ! '%d.%m.%Y'
       long: ! '%e. %B %Y'
-      short: ! '%e. %b'
+      short: ! '%e. %b'   
     month_names:
     - 
     - Januar
@@ -52,7 +52,7 @@ de:
     - :day
     - :month
     - :year
-  datetime:
+  datetime:    
     distance_in_words:
       about_x_hours:
         one: etwa eine Stunde
@@ -192,7 +192,7 @@ de:
     formats:
       default: ! '%A, %d. %B %Y, %H:%M Uhr'
       long: ! '%A, %d. %B %Y, %H:%M Uhr'
-      short: ! '%d.%m.%Y, %H:%M Uhr'
+      short: ! '%d.%m.%Y, %H:%M Uhr' 
     pm: nachmittags
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

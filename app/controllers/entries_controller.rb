@@ -2,7 +2,8 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries_by_date = Entry.all.group_by {|i| i.start_pit.to_date}
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   # GET /entries/1
@@ -65,5 +66,10 @@ class EntriesController < ApplicationController
       format.html { redirect_to entries_url }
       format.json { head :no_content }
     end
+  end
+  
+  def daylist
+    @date = params[:date].to_date
+    @entries = Entry.where(:start_pit => @date.beginning_of_day .. @date.end_of_day )
   end
 end

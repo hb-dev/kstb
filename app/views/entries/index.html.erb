@@ -1,21 +1,26 @@
+<div id="articles">
+</div>
+
 <div data-role="header">
   <%= link_to "<", root_path%>
   <h1>Einträge</h1>
 </div>
 <div data-role="content">
-  <ul data-role="listview">
-  <% @entries.each do |entry| %>
-    <li>
-    <%= link_to entry do %>
-      <h3><%= l entry.start_pit, :format => :short %></h3>
-      <p>
-      	<%= distance_of_time_in_words(entry.duration) %>, 
-      	(<%= entry.intensity[0,1] %>)
-      </p>
-    <% end %>
-    </li>
-  <% end %>
-  </ul>
+  <div id="entrycal">
+	  <h2 id="month">
+	    <%= link_to "<", date: @date.prev_month %>
+	    <%= l @date, :format => '%B %Y' %>
+	    <%= link_to ">", date: @date.next_month %>
+	  </h2><br />
+	  <ul data-role="listview">
+	  <%= calendar @date do |date| %>
+	    <% if @entries_by_date[date] %>
+	    	<%= link_to date.day, daylist_entries_path(:date => date) %>
+	    <% else %>
+	    	<%= date.day %>
+	    <% end %>
+	  <% end %>
+	</div>
 </div>
 <div data-role="navbar" data-position="fixed">
 	<ul>

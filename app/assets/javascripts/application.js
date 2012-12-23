@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require mobiscroll
-//= require jquery_ujs
 //= require overrides
 //= require jquery.mobile
+//= require jquery_ujs
 //= require_tree .
 
 
