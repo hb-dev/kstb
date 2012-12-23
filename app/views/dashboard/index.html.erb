@@ -1,9 +1,28 @@
 <div data-role="content">
-	<div data-role="controlgroup">
-		<%= link_to "Eintrag hinzufügen", new_entry_path, "data-icon" => "plus", "data-role" => "button" %>
-		<%= link_to "Eintragsübersicht", entries_path, "data-icon" => "grid", "data-role" => "button" %>
-		<%= link_to "Auswertungen", new_entry_path, "data-icon" => "star", "data-role" => "button" %>
-		<%= link_to "Hilfe", help_path, "data-icon" => "info", "data-role" => "button" %>
-		<%= link_to "Einstellungen", settings_path, "data-icon" => "gear", "data-role" => "button" %>
+	<div class="tiles">
+		<div class="tile left">
+			<%= link_to new_entry_path, "data-role" => "button" do %>
+				<%= image_tag "add.png"%><br />
+				Eintrag hinzufügen
+			<% end %>
+		</div>
+		<div class="tile">
+			<%= link_to entries_path, "data-role" => "button" do %>
+				<%= image_tag "calendar.png"%><br />
+				Eintragsübersicht
+			<% end %>
+		</div>
+		<div class="tile left">
+			<%= link_to new_entry_path, "data-role" => "button" do %>
+				<%= image_tag "chart.png"%><br />
+				Auswertungen
+			<% end %>
+		</div>
+		<div class="tile">
+			<%= link_to help_path, "data-role" => "button" do %>
+				<%= image_tag "help.png"%><br />
+				Hilfe
+			<% end %>
+		</div>
 	</div>
 </div>
