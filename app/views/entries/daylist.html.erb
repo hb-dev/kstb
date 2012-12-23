@@ -1,13 +1,13 @@
 <div data-role="header">
-  <%= link_to "<", entries_path(:date => params[:date])%>
-  <h1>Einträge</h1>
+  <%= link_to "<", entries_path(:date => params[:date]), "data-role" => "button", "data-icon" => "arrow-l", "data-iconpos" => "notext"%>
+  <h1><%= l @date %></h1>
 </div>
 <div data-role="content">
   <ul data-role="listview">
   <% @entries.each do |entry| %>
     <li>
     <%= link_to entry do %>
-      <h3><%= l entry.start_pit, :format => :short %></h3>
+      <h3><%= l entry.start_pit, :format => :time_only %></h3>
       <p>
       	<%= distance_of_time_in_words(entry.duration) %>, 
       	(<%= entry.intensity[0,1] %>)
