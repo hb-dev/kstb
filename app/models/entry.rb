@@ -6,8 +6,10 @@ class Entry < ActiveRecord::Base
   has_many :medications, :through => :intakes
   has_many :triggers, :through => :triggerings 
 
-  attr_accessible :comments, :intensity, :nausea, :start_pit, :end_pit, :entry_type, :location_ids, :trigger_ids, :medication_ids
-
+  accepts_nested_attributes_for :intakes, :allow_destroy => true
+  attr_protected :id
+  
+  validates :start_pit, :presence => true
 
   def duration    
     start_pit = self.start_pit

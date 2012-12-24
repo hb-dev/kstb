@@ -1,0 +1,8 @@
+<div data-role="fieldcontain">
+	<%= f.fields_for :intakes do |intake_form| %>		  
+	  <%= intake_form.collection_select :medication_id, Medication.all, :id, :title %>
+	  <%= intake_form.text_field :amount, :type => "number" %>
+	  <%= intake_form.select :effect, ["0 Keine Wirkung", "1 Kaum Wirkung", "2 Etwas Wirkung", "3 Mittelmäßige Wirkung", "4 Gute Wirkung", "5 Sehr gute Wirkung"], :placeholder => "Eingenommene Menge" %><br />
+	  <%= intake_form.link_to_remove "Medikament entfernen", "data-role" => "button", "data-icon" => "delete", "data-iconpos" => "left" %>
+	<% end %>
+</div>
