@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218144812) do
+ActiveRecord::Schema.define(:version => 20121225174024) do
 
   create_table "entries", :force => true do |t|
     t.datetime "start_pit"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20121218144812) do
     t.string   "effect"
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
+    t.integer  "entry_id"
   end
 
   create_table "localizations", :force => true do |t|

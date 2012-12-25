@@ -14,7 +14,7 @@
 	</div>
 	<p>
 	  	<h3>Schmerzart</h3>
-	    <%= @entry.entry_type %>		
+	    <%= @entry.entry_type %>
 	</p>
 	<p>		
 	  	<h3>Schmerzort</h3>
@@ -29,6 +29,14 @@
 	    <ul>
 	      <% @entry.triggers.each do |trigger| %>
 			<li><%= trigger.title %></li>
+	      <% end %>
+	    </ul>
+  	</p>
+  	<p>
+	  	<h3>Eingenommene Medikamente</h3>
+	    <ul>
+	      <% @entry.intakes.each do |intake| %>
+			<li><%= "#{intake.formated_amount} #{intake.medication.title}, #{intake.effect[2..-1]}" %></li>
 	      <% end %>
 	    </ul>
   	</p>

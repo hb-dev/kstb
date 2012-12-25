@@ -40,6 +40,7 @@
 		</div>
 		<div data-role="fieldcontain">
 			<h3>Eingenommene Medikamente</h3>
+			<%= f.fields_for :intakes %>
 			<%= f.link_to_add "Medikament hinzufügen", :intakes %>
 		</div>
 		<div data-role="fieldcontain">
