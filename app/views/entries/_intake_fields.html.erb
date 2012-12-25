@@ -1,6 +1,6 @@
 <div data-role="fieldcontain">	  
 	  <%= f.collection_select :medication_id, Medication.all, :id, :title %>
-	  <%= f.text_field :amount, :type => "range", "data-role" => "none" %>
+	  <%= f.text_field :amount, :type => "number", :min => 1, :step => 0.5 %>
 	  <%= f.select :effect, ["0 Keine Wirkung", "1 Kaum Wirkung", "2 Etwas Wirkung", "3 Mittelmäßige Wirkung", "4 Gute Wirkung", "5 Sehr gute Wirkung"], :placeholder => "Eingenommene Menge" %><br />
 	  <%= f.link_to_remove "Medikament entfernen", "data-role" => "button", "data-icon" => "delete", "data-iconpos" => "left" %>
 </div>
