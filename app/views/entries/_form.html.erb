@@ -12,11 +12,11 @@
 	    <% end %>
 	    <div data-role="fieldcontain">
 	      <%= f.label :start_pit, "Startzeitpunkt"%>
-	      <%= f.text_field :start_pit, :required => true%>
+	      <%= f.text_field :start_pit, :required => true, :type => "datetime-local"%>
 	    </div>
 	    <div data-role="fieldcontain">
 	      <%= f.label :end_pit, "Endzeitpunkt"%>
-	      <%= f.text_field :end_pit %>
+	      <%= f.text_field :end_pit, :type => "datetime-local" %>
 	    </div>
 		<div data-role="fieldcontain">
 	      <%= f.label :entry_type, "Schmerzart"%>
